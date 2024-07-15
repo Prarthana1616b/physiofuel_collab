@@ -3,69 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PhysioFuel Collab</title>
-  <!-- Include your CSS styles here if any -->
+  <title>PhysioFuelCollab Survey</title>
   <style>
-    /* Add your CSS styles for layout and design here */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0; /* Example background color */
-      color: #333; /* Example text color */
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    /* Add more styles as per your design preferences */
+    body { font-family: Arial, sans-serif; }
+    .form-container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+    .form-group { margin-bottom: 15px; }
+    .form-group label { display: block; margin-bottom: 5px; }
+    .form-group select, .form-group input { width: 100%; padding: 8px; }
+    .form-group button { padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Welcome to PhysioFuel Collab</h1>
-    <form id="contactForm">
-      <h2>Initial Health Statement</h2>
-      <p>What are your primary health goals?</p>
-      <input type="text" name="primaryHealthGoals" required>
-      
-      <p>What are the biggest challenges you face in achieving your health goals?</p>
-      <textarea name="challenges" rows="4" required></textarea>
-      
-      <p>What are your fitness goals?</p>
-      <input type="text" name="fitnessGoals" required>
-      
-      <p>Would you like to schedule a free consultation?</p>
-      <label>
-        <input type="radio" name="freeConsultation" value="yes" required> Yes
-      </label>
-      <label>
-        <input type="radio" name="freeConsultation" value="no" required> No
-      </label>
-      
-      <br><br>
-      <button type="submit">Submit</button>
+  <div class="form-container">
+    <h1>PhysioFuelCollab Survey</h1>
+    <form id="surveyForm">
+      <div class="form-group">
+        <label for="primaryGoal">What is your primary health goal?</label>
+        <select id="primaryGoal" name="primaryGoal" required>
+          <option value="Weight Loss">Weight Loss</option>
+          <option value="Weight Gain">Weight Gain</option>
+          <option value="Maintaining Weight">Maintaining Weight</option>
+          <option value="Improving Fitness">Improving Fitness</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="biggestChallenge">What are the biggest challenges you face in achieving your health goals?</label>
+        <select id="biggestChallenge" name="biggestChallenge" required>
+          <option value="Lack of Time">Lack of Time</option>
+          <option value="Lack of Motivation">Lack of Motivation</option>
+          <option value="Dietary Restrictions">Dietary Restrictions</option>
+          <option value="Physical Limitations">Physical Limitations</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="fitnessGoals">What are your fitness goals?</label>
+        <select id="fitnessGoals" name="fitnessGoals" required>
+          <option value="Building Muscle">Building Muscle</option>
+          <option value="Increasing Stamina">Increasing Stamina</option>
+          <option value="Improving Flexibility">Improving Flexibility</option>
+          <option value="Overall Wellness">Overall Wellness</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="freeConsultation">Would you like to have a free consultation?</label>
+        <select id="freeConsultation" name="freeConsultation" required>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="submit">Submit</button>
+      </div>
     </form>
   </div>
 
-  <!-- Google Analytics Tracking Code -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    document.getElementById('surveyForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var primaryGoal = document.getElementById('primaryGoal').value;
+      var biggestChallenge = document.getElementById('biggestChallenge').value;
+      var fitnessGoals = document.getElementById('fitnessGoals').value;
+      var freeConsultation = document.getElementById('freeConsultation').value;
+      
+      var message = `Primary Health Goal: ${primaryGoal}%0A` +
+                    `Biggest Challenge: ${biggestChallenge}%0A` +
+                    `Fitness Goals: ${fitnessGoals}%0A` +
+                    `Free Consultation: ${freeConsultation}`;
 
-    gtag('config', 'YOUR_TRACKING_ID');
-    
-    // Event listener for form submission
-    document.getElementById('contactForm').addEventListener('submit', function() {
-      gtag('event', 'submit', {
-        'event_category': 'Form Submission',
-        'event_label': 'Contact Form'
-      });
+      window.location.href = `https://wa.me/919710111130?text=${message}`;
     });
   </script>
 </body>
