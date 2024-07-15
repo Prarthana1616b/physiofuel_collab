@@ -1,85 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PhysioFuel Collab</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        .header, .footer {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-        }
-        .container {
-            padding: 20px;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        h1, h2 {
-            color: #4CAF50;
-        }
-        .contact-info, .cta {
-            margin-top: 20px;
-        }
-        .cta button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        .cta button:hover {
-            background-color: #45a049;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhysioFuel Collab</title>
+  <!-- Include your CSS styles here if any -->
+  <style>
+    /* Add your CSS styles for layout and design here */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0; /* Example background color */
+      color: #333; /* Example text color */
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    /* Add more styles as per your design preferences */
+  </style>
 </head>
 <body>
-    <div class="header">
-        <h1>PhysioFuel Collab</h1>
-        <p>Weight Management and Wellness Program</p>
-    </div>
-    <div class="container">
-        <div class="section">
-            <h2>About Us</h2>
-            <p>Welcome to PhysioFuel Collab! We are Prarthana Choudhary and Kalpana Choudhary, working together to bring you a comprehensive weight management and wellness program.</p>
-        </div>
-        <div class="section">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Customized diet plans</li>
-                <li>Physiotherapy consultation</li>
-                <li>Weight management program</li>
-                <li>3-4 days a week yoga sessions</li>
-                <li>First consultation free</li>
-            </ul>
-        </div>
-        <div class="section">
-            <h2>Qualifications</h2>
-            <p>Prarthana Choudhary: Bachelor of Physiotherapy, Internationally Accredited Certificate in Yoga Training from Udemy, Health and Wellness Coaching Certificate (CPD Accredited) from Udemy.</p>
-            <p>Kalpana Choudhary: BSP and MSP in Nutrition.</p>
-        </div>
-        <div class="section">
-            <h2>Contact Information</h2>
-            <p>Phone: 9710111130</p>
-            <p>Email: prarthanachoudhoury5@gmail.com</p>
-            <p>Instagram: <a href="https://www.instagram.com/physiofuel_collab">@physiofuel_collab</a></p>
-        </div>
-        <div class="cta">
-            <p>Ready to start your journey with us?</p>
-            <button onclick="location.href='https://wa.me/9710111130?text=I%20am%20interested%20in%20your%20program'">Join Us on WhatsApp</button>
-        </div>
-    </div>
-    <div class="footer">
-        <p>© 2024 PhysioFuel Collab. All rights reserved.</p>
-    </div>
+  <div class="container">
+    <h1>Welcome to PhysioFuel Collab</h1>
+    <form id="contactForm">
+      <h2>Initial Health Statement</h2>
+      <p>What are your primary health goals?</p>
+      <input type="text" name="primaryHealthGoals" required>
+      
+      <p>What are the biggest challenges you face in achieving your health goals?</p>
+      <textarea name="challenges" rows="4" required></textarea>
+      
+      <p>What are your fitness goals?</p>
+      <input type="text" name="fitnessGoals" required>
+      
+      <p>Would you like to schedule a free consultation?</p>
+      <label>
+        <input type="radio" name="freeConsultation" value="yes" required> Yes
+      </label>
+      <label>
+        <input type="radio" name="freeConsultation" value="no" required> No
+      </label>
+      
+      <br><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Google Analytics Tracking Code -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'YOUR_TRACKING_ID');
+    
+    // Event listener for form submission
+    document.getElementById('contactForm').addEventListener('submit', function() {
+      gtag('event', 'submit', {
+        'event_category': 'Form Submission',
+        'event_label': 'Contact Form'
+      });
+    });
+  </script>
 </body>
 </html>
